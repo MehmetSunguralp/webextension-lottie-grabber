@@ -1,0 +1,1 @@
+.\tools\node18\node.exe "$env:APPDATA\npm\node_modules\yarn\bin\yarn.js" $args

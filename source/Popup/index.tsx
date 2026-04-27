@@ -9,9 +9,10 @@ let tabLotties: string[] = [];
 browser.storage.local.get().then(async (data: any) => {
   try {
     const tab = await browser.tabs.query({ active: true, currentWindow: true });
+    const activeTabId = tab[0]?.id;
 
     tabLotties = Object.keys(data)
-      .filter((key) => (tab ? data[key].tabId === tab[0].id : true))
+      .filter((key) => (activeTabId !== undefined ? data[key].tabId === activeTabId : true))
       .map((key) => {
         return data[key];
       });
